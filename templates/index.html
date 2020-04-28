@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Mission to Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<!-- jumbotron text & button -->
+<body>
+  <div class="container-fluid">
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <!-- button -->
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+  </div>
+
+<!-- mars news-->
+<div class="container">
+  <h2>{{mars_data.mars_news_title}}</h2>
+  <h3>{{mars_data.mars_news_paragraph}}</h3>
+</div>  
+<br>
+
+<!-- mars image, weather, and facts-->   
+<div class="container">
+<!-- left part-->   
+  <div class="col xs-12 col-md-8" style="background-color:white">
+    <img src={{mars_data.mars_images}} alt="..."  height="360 px" width="500 px">
+
+  </div>
+<!-- right part--> 
+  <div class="col xs-12 col-md-4">
+  <!-- nasa weather--> 
+    <div class="row">
+      <div class="col-xs-3 col-md-12" style="background-color:pink">
+        {{mars_data.mars_twitter}}
+        <br>
+        <br>
+      </div>
+    </div>
+
+  <!-- nasa facts--> 
+    <div class="row">
+      <div class="col-xs-3 col-md-12" style="background-color:rgb(110, 167, 103)">
+        {{mars_data.mars_facts | safe}}
+        <br>
+        <br>
+        <br>
+      </div>
+    </div>
+  </div>
+    
+</div>
+
+<br>
+<br>
+
+<!-- nasa hemisphere--> 
+<div class="container" style="text-align:center">
+  <h1>Nasa Hemisphere </h1>
+  <hr>
+  
+
+
+<!-- left part hemisphere-->  
+  <div class="col xs-12 col-md-6">
+  <!-- left part top-->   
+  <div class="row">
+    <div class="col xs-12 col-md-12" style="background-color:yellow">
+     
+      <img src="{{mars_data['hemi_dict'][0]['image']}}"  alt="..."  height="200 px" width="200 px">
+      <br>
+      <h3 style="text-align:center">{{mars_data['hemi_dict'][0]['title']}}</h3>
+      
+
+
+    </div>
+  </div>
+    <!-- right part bottom--> 
+    <div class="row">
+      <div class="col-xs-3 col-md-12" style="background-color:red">
+        <img src="{{mars_data['hemi_dict'][1]['image']}}"  alt="..."  height="200 px" width="200 px">
+        <br>
+        <h3 style="text-align:center">{{mars_data['hemi_dict'][1]['title']}}</h3>
+      </div>
+    </div>
+    </div>
+
+
+
+<!-- right part hemisphere--> 
+  <div class="col xs-12 col-md-6">
+<!-- right part top--> 
+    <div class="row">
+      <div class="col-xs-3 col-md-12" style="background-color:red">
+        <img src="{{mars_data['hemi_dict'][2]['image']}}"  alt="..."  height="200 px" width="200 px">
+        <br>
+        <h3 style="text-align:center">{{mars_data['hemi_dict'][2]['title']}}</h3>
+      </div>
+    </div>
+
+<!-- right part bottom--> 
+    <div class="row">
+      <div class="col-xs-3 col-md-12" style="background-color:yellow">
+        <img src="{{mars_data['hemi_dict'][3]['image']}}"  alt="..."  height="200 px" width="200 px">
+        <br>
+        <h3 style="text-align:center">{{mars_data['hemi_dict'][3]['title']}}</h3>
+    </div>
+    
+  </div>
+
+</div>
+
+
+
+</body>
+
+</html>
